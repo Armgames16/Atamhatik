@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ատամհատիկի Հրավիրատոմս</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="floating-teeth">...</div>
+<div class="balloons">...</div>
+<div class="sparkle">...</div>
+
+<div id="door" class="overlay">
+  <div class="door-card-new">
+    <div class="blue-heart-main">🦷</div>
+    <p class="invite-label-new">Ատամհատիկի հրավիրատոմս</p>
+    <h2 class="names-intro-new">Կարեն</h2>
+    <button id="openBtn" class="open-btn-new">ԲԱՑԵԼ ՀՐԱՎԻՐԱՏՈՄՍԸ</button>
+    <p class="sub-text">Սեղմեք բացելու համար</p>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="names">Կարեն</h1>
+
+  <div class="gallery-grid">
+    <img src="main.jpg" alt="wedding2">
+  </div>
+
+  <div class="date-row">
+    <div class="hero-date">Հունիս 14 / 2026</div>
+  </div>
+
+  <p class="countdown-title">Ատամհատիկը սկսվում է</p>
+  <div class="countdown-grid" id="timer"></div>
+
+  <div class="calendar-box">
+    <div class="cal-header">Հունիս 2026</div>
+    <div class="weekdays">
+      <div>Երկ</div><div>Երք</div><div>Չոր</div><div>Հնգ</div><div>Ուրբ</div><div>Շաբ</div><div>Կիր</div>
+    </div>
+    <div class="days-grid" id="calDays"></div>
+    <p class="wedding-weekday">Կիրակի</p>
+  </div>
+
+  <div class="gallery-grid">
+    <img src="p1.jpg" alt="wedding2">
+  </div>
+
+  <div class="event">
+    <div class="blue-heart">🎉</div>
+    <h1>Kidsloft Fun Club</h1>
+    <div class="event-time">16:00</div>
+    <div class="map-card">
+      <img src="hall.jpg">
+      <a href="https://maps.app.goo.gl/c6TUK3KefRAN1PU28" target="_blank" class="map-btn">
+        Ինչպես հասնել
+      </a>
+    </div>
+  </div>
+
+  <div class="finish-section">
+    <div class="blue-heart">🚗</div>
+    <h1>Ավարտ</h1>
+    <button id="showModalBtn" class="rsvp-btn hidden-btn">ՀԱՍՏԱՏԵԼ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ</button>
+    <p id="guestCounter" style="color:var(--blue); font-weight:bold; margin-top:15px;">
+      Արդեն հաստատել են 0 հյուր
+    </p>
+  </div>
+</div>
+
+<div id="rsvpModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-icon" style="text-align:center;">💙</div>
+    <h2 class="modal-title" style="text-align:center;">Հաստատում</h2>
+
+    <div class="form-group">
+      <label>Անուն Ազգանուն *</label>
+      <input type="text" id="guestName" placeholder="Գրեք ձեր անունը">
+    </div>
+
+    <div class="form-group">
+      <label>Կկարողանա՞ք ներկա գտնվել *</label>
+      <div class="radio-row">
+        <div class="option-box active" data-val="Այո">
+          <div class="dot"></div>
+          <span>Այո</span>
+        </div>
+        <div class="option-box" data-val="Ոչ">
+          <div class="dot"></div>
+          <span>Ոչ</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="countBox">
+      <label>Քանի հոգի</label>
+      <input type="number" id="guestCount" min="1" value="1">
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="guestWish" class="wish-input" placeholder="Ձեր բարեմաղթանքը (ոչ պարտադիր)">
+    </div>
+
+    <button id="sendBtn" class="rsvp-btn">
+      ՀԱՍՏԱՏԵԼ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ
+    </button>
+    <p id="closeModalBtn" class="close-txt" style="text-align:center; cursor:pointer; color:#888; margin-top:15px;">Փակել</p>
+  </div>
+</div>
+
+<button id="musicToggle" class="music-btn">🎵</button>
+<audio id="bgMusic" src="music.mp3" loop></audio>
+<script src="index.js"></script>
+
+<div id="hearts-container"></div>
+
+<div id="successMessage" style="display:none;">
+  <div class="success-card">
+    <h2>❤️ Շնորհակալություն❤️</h2>
+    <div class="tooth-ring">
+      <span>🦷</span><span>🦷</span><span>🦷</span><span>🦷</span>
+      <span>🦷</span><span>🦷</span><span>🦷</span><span>🦷</span>
+    </div>
+  </div>
+</div>
+
+<div class="teeth-container"></div>
+<div class="balloons">
+  <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+</div>
+<div class="sparkles"></div>
+<div class="floating-teeth">
+  <span>🦷</span><span>🦷</span><span>🦷</span><span>🦷</span><span>🦷</span>
+</div>
+<div class="sparkle">
+  <span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+:root {
+    --blue: #4fc3f7;
+    --pink: #ffb6d9;
+    --mint: #a8f0d1;
+    --text: #444;
+    --light: #f0fbff;
+    --bg: #ffffff;
+    --card: #ffffff;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Comfortaa', -apple-system, sans-serif;
+    color: var(--text);
+    text-align: center;
+    background-color: #ffffff;
+    background-image: radial-gradient(#e1f5fe 1px, transparent 1px);
+    background-size: 22px 22px;
+    transition: background .35s ease, color .35s ease;
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+    --text: #eaeaea;
+    --light: #1f1f1f;
+    --bg: #121212;
+    --card: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 14px 60px;
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url('your-photo.jpg') no-repeat center/cover;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .8s;
+}
+
+.door-card-new {
+    width: 85%;
+    max-width: 380px;
+    padding: 35px 20px;
+    border-radius: 40px;
+    background: linear-gradient(145deg, #ffffff, #f0fbff);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.2);
+    border: 1px solid rgba(255,255,255,.3);
+}
+
+.blue-heart-main {
+    font-size: 54px;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-8px) }
+}
+
+.invite-label-new { font-size: 1rem; color: #666; }
+.names-intro-new { font-size: 1.9rem; margin: 18px 0 26px; color: #222; font-weight: 700; }
+
+.open-btn-new {
+    background: linear-gradient(135deg, #4fc3f7, #2af598);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 18px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(79, 195, 247, .45);
+    transition: .25s;
+}
+
+.open-btn-new:hover { transform: translateY(-2px); }
+.sub-text { margin-top: 16px; font-size: .8rem; color: #888; }
+
+/* ===== TITLE ===== */
+.names { font-weight: 700; font-size: 2.7rem; margin: 40px 0 25px; color: var(--blue); letter-spacing: 1px; }
+.names::after { content: " 🦷"; }
+
+/* ===== GALLERY ===== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+.gallery-grid img { width: 100%; height: auto; border-radius: 16px; }
+img { max-width: 100%; height: auto; }
+
+/* ===== DATE ===== */
+.date-row { display: flex; align-items: center; justify-content: center; margin-top: 20px; }
+.hero-date { font-size: 1.5rem; color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 5px; }
+
+/* ===== COUNTDOWN ===== */
+.countdown-title { font-size: 1.1rem; color: #666; margin: 30px 0 -10px; }
+.countdown-grid { display: flex; justify-content: center; gap: 10px; margin: 25px 0; min-height: 80px; align-items: center; }
+.time-unit { background: linear-gradient(135deg, #e1f5fe, #ffffff); border: 2px solid #b3e5fc; padding: 10px; border-radius: 14px; min-width: 60px; }
+.time-unit span { display: block; font-size: 1.2rem; font-weight: bold; }
+
+/* ===== CALENDAR ===== */
+.calendar-box { margin: 40px auto; width: 92%; }
+.cal-header { font-size: 1.2rem; margin-bottom: 15px; color: var(--blue); font-weight: 600; }
+.weekdays { display: grid; grid-template-columns: repeat(7, 1fr); font-size: .8rem; color: #aaa; }
+.days-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-top: 10px; }
+.day { padding: 15px 0; font-size: 1rem; position: relative; display: flex; align-items: center; justify-content: center; }
+.wedding-day { color: #ff4081 !important; font-weight: bold; }
+.wedding-day::after {
+    content: "🦷"; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); font-size: 36px; animation: pulse 1.2s infinite; z-index: -1;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1) }
+    50% { transform: translate(-50%, -50%) scale(1.2) }
+    100% { transform: translate(-50%, -50%) scale(1) }
+}
+
+/* ===== EVENT ===== */
+.event { position: relative; padding: 30px 0; text-align: center; }
+.event:not(:last-child)::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: #4fc3f7; opacity: .25; }
+.event .blue-heart { font-size: 70px; margin-bottom: 10px; }
+.event h1 { font-size: clamp(1.4rem, 5vw, 2rem); }
+.event-time { font-size: 2.6rem; color: var(--blue); font-weight: 300; margin: 5px 0; }
+
+/* ===== MAP ===== */
+.map-card { position: relative; width: 92%; margin: 10px auto 40px; }
+.map-card img { width: 100%; border-radius: 16px; }
+.map-btn {
+    position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
+    background: var(--blue); color: #fff; padding: 10px 20px; border-radius: 20px;
+    text-decoration: none; font-weight: bold; font-size: .8rem; box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+/* ===== MODAL ===== */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(4px); z-index: 3000; align-items: center; justify-content: center; }
+.modal-card { background: #fff; width: 88%; max-width: 380px; padding: 35px 25px; border-radius: 25px; text-align: left; }
+body.dark .modal-card { background: #1e1e1e; color: #fff; }
+input { width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 12px; margin-top: 5px; font-family: inherit; }
+
+/* ===== RSVP OPTION ===== */
+.radio-row { display: flex; gap: 10px; margin-top: 5px; }
+.option-box { flex: 1; border: 2px solid #e0e0e0; border-radius: 14px; padding: 12px; text-align: center; cursor: pointer; transition: .25s; background: #fff; }
+.option-box.active { border-color: #4fc3f7; background: #e1f5fe; }
+.form-group { margin-bottom: 15px; }
+
+/* ===== RSVP BEAUTIFUL BUTTON ===== */
+.rsvp-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: linear-gradient(135deg, #00cae3, #5fd4ff);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 202, 227, 0.35);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.rsvp-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 16px 35px rgba(0, 202, 227, 0.45);
+}
+
+.rsvp-btn:active {
+    transform: scale(0.96);
+}
+
+.rsvp-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transition: 0.6s;
+}
+
+.rsvp-btn:hover::before { left: 120%; }
+
+/* Սա ապահովում է կոճակի սահուն հայտնվելը ներքևի հատվածում */
+.hidden-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+.show-btn {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ===== MUSIC BUTTON ===== */
+.music-btn {
+    position: fixed; top: 15px; right: 15px; width: 45px; height: 45px;
+    background: rgba(79, 195, 247, .9); border: none; border-radius: 50%;
+    font-size: 1.3rem; color: #fff; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    z-index: 7000; transition: .25s;
+}
+.music-btn:hover { transform: scale(1.1); }
+
+/* ===== FLOATING ANIMATIONS ===== */
+.floating-teeth, .balloons, .sparkle, .sparkles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.floating-tooth { position: fixed; bottom: -40px; animation: floatUp linear forwards; }
+@keyframes floatUp { to { transform: translateY(-120vh); opacity: 0; } }
+
+/* 🎈 Փուչիկների անիմացիա */
+.balloons span, .balloon {
+    position: absolute;
+    font-size: 30px;
+    animation: floatBalloon linear forwards;
+}
+
+@keyframes floatBalloon {
+    0% { transform: translateY(120vh); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-20vh); opacity: 0; }
+}
+
+/* ✨ Աստղիկների անիմացիա */
+.sparkle span, .sparkles .sparkle {
+    position: absolute;
+    font-size: 14px;
+    animation: sparkleAnim 4s ease-in-out infinite;
+}
+
+@keyframes sparkleAnim {
+    0%, 100% { transform: scale(.8); opacity: .3; }
+    50% { transform: scale(1.4); opacity: 1; }
+}
+
+.wedding-day {
+    position: relative;
+    font-weight: bold;
+    color: #ff4081 !important;
+
+    background: url("tooth.png") no-repeat center/40px;
+}
+
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* ===== CALENDAR - UPDATED FOR PNG BACKGROUND ===== */
+
+.calendar-box .wedding-day {
+    position: relative;
+    color: #444 !important; /* Թվի գույնը (կարող ես փոխել, եթե նկարի վրա վատ երևա) */
+    font-weight: 700;
+    z-index: 1;
+    overflow: visible; /* Որ նկարը չկտրվի մեծանալիս */
+}
+
+/* Սա կստեղծի նկարը թվի հետևում */
+.calendar-box .wedding-day::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px; /* Նկարի լայնությունը (կարգավորիր ըստ ցանկության) */
+    height: 45px; /* Նկարի բարձրությունը */
+    background-image: url('tooth.png'); /* ՔՈ PNG ՆԿԱՐԸ */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1; /* Թվի հետևում */
+
+    /* ԱՆԻՄԱՑԻԱ */
+    animation: pngPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px rgba(79, 195, 247, 0.4)); /* Թեթև շողք */
+}
+
+/* ԲԱԲԱԽՈՂ ԱՆԻՄԱՑԻԱ PNG ՆԿԱՐԻ ՀԱՄԱՐ */
+@keyframes pngPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.25); /* Մեծանում է 25%-ով */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* ===== CALENDAR - CLEANUP AND PNG ANTIMATION ===== */
+
+.calendar-box .wedding-day {
+    position: relative;
+    color: #fff !important; /* Թվի գույնը սպիտակ, որ PNG-ի վրա լավ երևա */
+    font-weight: 700;
+    z-index: 1;
+    overflow: visible; /* Որ նկարը չկտրվի մեծանալիս */
+}
+
+/* Ավելացնում ենք PNG նկարը թվի հետևում */
+.calendar-box .wedding-day::before {
+    content: ""; /* Մաքրում ենք էմոջիները */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px; /* Նկարի լայնությունը (կարգավորիր ըստ ցանկության) */
+    height: 42px; /* Նկարի բարձրությունը */
+    background-image: url('tooth.png'); /* ՔՈ PNG ՆԿԱՐԸ */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1; /* Թվի հետևում */
+
+    /* ԱՆԻՄԱՑԻԱ */
+    animation: pngPulse 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(79, 195, 247, 0.45)); /* Թեթև շողք */
+}
+
+/* ԲԱԲԱԽՈՂ ԱՆԻՄԱՑԻԱ PNG ՆԿԱՐԻ ՀԱՄԱՐ */
+@keyframes pngPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3); /* Մեծանում է 30%-ով */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* 1. Հեռացնում ենք էմոջին վերնագրի կողքից */
+.names::after { content: ""; }
+
+/* 2. Օրացույցի օրվա կարգավորումները */
+.calendar-box .wedding-day {
+    position: relative;
+    color: #ffffff !important; /* Թիվը սպիտակ, որ լավ երևա նկարի վրա */
+    font-weight: 700;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none !important; /* Հեռացնում ենք հին background-ը */
+}
+
+/* 3. Միայն PNG նկարը և անիմացիան */
+.calendar-box .wedding-day::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; /* Չափը կարող ես փոխել ըստ նկարիդ */
+    height: 48px;
+    background-image: url('tooth.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+
+    /* Բաբախող անիմացիա */
+    animation: pngPulse 1.8s ease-in-out infinite;
+    /* Թեթև ստվեր նկարի շուրջ */
+    filter: drop-shadow(0 0 5px rgba(79, 195, 247, 0.5));
+}
+
+/* 4. Անիմացիայի կոդը */
+@keyframes pngPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.25); /* Մեծանում է 25%-ով */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Հեռացնում ենք հին ::after էմոջի-ատամը, եթե կա */
+.calendar-box .wedding-day::after {
+    display: none !important;
+}
+
+/* ===== ՕՐԱՑՈՒՅՑԻ 14 ԹԻՎԸ ===== */
+
+.calendar-box .wedding-day {
+    position: relative;
+    color: #000000 !important; /* Թվի գույնը՝ սև (կամ փոխիր սպիտակ #ffffff, եթե նկարը մուգ է) */
+    font-weight: 800; /* Ավելի հաստ, որ լավ երևա */
+    font-size: 1.1rem;
+    z-index: 5; /* Բարձրացնում ենք թվի շերտը */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== PNG ՆԿԱՐԸ ԹՎԻ ՀԵՏԵՎՈՒՄ ===== */
+
+.calendar-box .wedding-day::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px; /* Նկարի չափը */
+    height: 45px;
+    background-image: url('tooth.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1; /* Մնում է թվի հետևում */
+    opacity: 0.8; /* Թեթև թափանցիկություն, որ թիվն ավելի ընդգծվի */
+
+    /* ԱՆԻՄԱՑԻԱ */
+    animation: pngPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pngPulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
